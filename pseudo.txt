@@ -2,11 +2,29 @@
 
 intro screen
 
-user inputs a letter
--checks to see if letter has already been used
--checks to see if letter is in array
--updates screen
+-pick a random word
+
+-print out blanks
+	-counts number of letters
+	-prints out blank per letters
+		-except if there's a blank, prints out " "
+
+-user guesses
+-checks to see if guess has been made
+-add user-guess to array - if array is full, user loses
+-update screen to show what user has guessed
 -decrements number of tries
 
 
 <pre>Use this tag for ascii art</pre>
+
+
+
+Functions needed
+
+-picking a random word
+-printing out blanks
+-analyzing user guesses
+-updating screen
+	-decrementing number of tries
+	-add user-guess to array - if array is full, user loses
