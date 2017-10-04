@@ -1,0 +1,12 @@
+-Hangman Game-
+
+intro screen
+
+user inputs a letter
+-checks to see if letter has already been used
+-checks to see if letter is in array
+-updates screen
+-decrements number of tries
+
+
+<pre>Use this tag for ascii art</pre>
