@@ -21,7 +21,7 @@ document.onkeyup = function(event) {
 	//this for-loop checks if user pressed a valid letter
 	for (var i = 0; i < letters.length; i++) {
 		if (event.key === letters[i]) {
-			console.log("gottem")
+			checkUserLetter(event.key);
 		}
 	}
 
@@ -77,7 +77,7 @@ function printBlanks(printBlanks_input) {	//
 
 //Input: letter that user pressed | checks if it's one of the correct letters and checks if the letter has already been pressed
 function checkUserLetter(inputLetter) {
-	var newPrint;
+	var newPrint = " ";
 	var alreadyGuessed;
 
 	//this loop checks to see if the letter has already been pressed
@@ -89,9 +89,19 @@ function checkUserLetter(inputLetter) {
 	}
 
 	//this will check if the letter is correct and will change the current output
-	for (var e = 0; e < secretWord.length; e++) {
-		
+	for (var k = 0; k < secretWord.length; k++) {
+		if (inputLetter === secretWord.charAt(k)) {
+			currentOutput[k] = inputLetter;
+		}
 	}
+
+	console.log(currentOutput);
+
+	for (var e = 0; e < currentOutput.length; e++) {	//This loop turns currentOutput into a string
+		newPrint = newPrint.concat(currentOutput[e]);
+	}
+
+	document.querySelector("#blanks").innerHTML = newPrint;
 
 }
 
