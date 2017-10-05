@@ -3,7 +3,7 @@ var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','
 
 var guessedLetters = [];
 var currentOutput = [];
-var trysLeft = 12;
+var trysLeft = 5;
 var secretWord;
 var gameOver = false;
 
@@ -35,6 +35,13 @@ document.onkeyup = function(event) {
 
 
 // Here is a place to put functions...........................
+
+//this function will change the text to say game over
+function endGame() {
+	gameOver = true;
+	document.querySelector("#blanks").innerHTML = "Game Over";
+}
+//........................................................
 
 
 //Input: none | Output: random word from list................
@@ -100,12 +107,17 @@ function checkUserLetter(inputLetter) {
 		}
 	}
 
-	//this will check decrement number of tries if guess is wrong
+	//this will check and decrement number of tries if guess is wrong
 	if (guessCorrect === false) {
 		guessedLetters.push(inputLetter);
 		console.log("guessed letters: " + guessedLetters);
 		trysLeft--;
 		console.log("tries left: " + trysLeft);
+	}
+
+	if (trysLeft <= 0) {
+		endGame();
+		return;
 	}
 
 	console.log("current output: " + currentOutput);
@@ -118,4 +130,6 @@ function checkUserLetter(inputLetter) {
 	document.querySelector("#blanks").innerHTML = newPrint;
 
 }
+//............................................................
+
 
