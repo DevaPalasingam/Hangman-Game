@@ -1,14 +1,16 @@
 var words = ["typewriter", "pager", "fax machine", "dial up", "phonebook", "floppy disk", "vhs"];
-var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 var guessedLetters = [];
 var currentOutput = [];
 var trysLeft = 12;
 var secretWord;
 var gameOver = false;
+var wordsGuessedCount = 0;
 
 secretWord = randomWord();
 printBlanks(secretWord);
+document.querySelector("#points").innerHTML = "Monsters defeated: " + wordsGuessedCount;
 
 
 //This function happens when user releases a key
@@ -25,6 +27,8 @@ document.onkeyup = function(event) {
 		}
 	}
 
+	completeWordCheck();
+
 }
 
 
@@ -36,6 +40,20 @@ document.onkeyup = function(event) {
 
 // Here is a place to put functions...........................
 
+
+//this function is for initializing and resetting the screen
+function initialize() {
+	guessedLetters = [];
+	currentOutput = [];
+	trysLeft = 12;
+	secretWord = randomWord();
+	printBlanks(secretWord);
+	document.querySelector("#guessed").innerHTML = "Guessed Letters: ";
+	document.querySelector("#points").innerHTML = "Monsters defeated: " + wordsGuessedCount;
+}
+//....................................................
+
+
 //this function will change the text to say game over
 function endGame() {
 	gameOver = true;
@@ -43,6 +61,22 @@ function endGame() {
 }
 //........................................................
 
+
+//This function will check to see if the word is completed 
+function completeWordCheck () {
+
+	//this loop will leave the function if there are still blanks
+	for (var i = 0; i < currentOutput.length; i++) {
+		if (currentOutput[i] === " _ ") {
+			return;
+		}
+	}
+
+	wordsGuessedCount++;
+	console.log(wordsGuessedCount);
+	initialize();
+}
+//...........................................................
 
 //Input: none | Output: random word from list................
 function randomWord() {	
@@ -64,7 +98,7 @@ function printBlanks(printBlanks_input) {
 	//This loop will create an array with all the needed blanks and spaces
 	for (var i = 0; i < wordLength; i++) {	
 		if (printBlanks_input.charAt(i) === " ") {
-			blankArray[i] = '\xa0\xa0\xa0';
+			blankArray[i] = "\xa0\xa0\xa0";
 		}
 		else {
 			blankArray[i] = " _ ";
@@ -106,6 +140,7 @@ function checkUserLetter(inputLetter) {
 		}
 	}
 
+
 	//this will check and decrement number of tries if guess is wrong
 	if (guessCorrect === false) {
 		guessedLetters.push(inputLetter);
@@ -133,6 +168,7 @@ function checkUserLetter(inputLetter) {
 		guessedString = guessedString.concat(guessedLetters[p]);
 	}
 	document.querySelector("#guessed").innerHTML = "Guessed letters: " + guessedString;
+
 
 }
 //............................................................

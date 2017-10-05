@@ -33,16 +33,17 @@ Functions needed
 	-check if valid letter
 	-check if letter has been chosen already
 	-update screen
-		-check how many tries left (lifebar)
-			-game over screen
-		-update blanks with correct letters
-		-print out the letter guessed
-		-check to see if challenge is completed
-			-if completed, move to next word
+		-decrementing number of tries
+		-add user-guess to array - if array is full, user loses
+	-update blanks with correct letters	
+	-print out the letter guessed
 
--updating screen
-	-decrementing number of tries
-	-add user-guess to array - if array is full, user loses
+-check how many tries left (lifebar)
+			-game over screen
+		
+		
+-check to see if challenge is completed
+			-if completed, move to next word
 
 
 
