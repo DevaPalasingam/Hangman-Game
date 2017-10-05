@@ -41,7 +41,7 @@ document.onkeyup = function(event) {
 function randomWord() {	
 	var chosenWord;
 	chosenWord = words[Math.floor(Math.random() * words.length)];
-	console.log(chosenWord);
+	console.log("chosen word: " + chosenWord);
 	return chosenWord;
 }
 //.............................................................
@@ -49,12 +49,13 @@ function randomWord() {
 
 
 //Input: word | Then prints the proper amount of blanks..........
-function printBlanks(printBlanks_input) {	//
+function printBlanks(printBlanks_input) {
 	var wordLength = printBlanks_input.length;
 	var blankArray = [];
 	var printString = " ";
 	
-	for (var i = 0; i < wordLength; i++) {	//This loop will create an array with all the needed blanks and spaces
+	//This loop will create an array with all the needed blanks and spaces
+	for (var i = 0; i < wordLength; i++) {	
 		if (printBlanks_input.charAt(i) === " ") {
 			blankArray[i] = '\xa0\xa0\xa0';
 		}
@@ -64,9 +65,10 @@ function printBlanks(printBlanks_input) {	//
 	}
 
 	currentOutput = blankArray.slice(0);
-	console.log(currentOutput);
+	console.log("current output: " + currentOutput);
 
-	for (var e = 0; e < blankArray.length; e++) {	//This loop turns blankArray into a string
+	//This loop turns blankArray into a string
+	for (var e = 0; e < blankArray.length; e++) {	
 		printString = printString.concat(blankArray[e]);
 	}
 
@@ -78,7 +80,7 @@ function printBlanks(printBlanks_input) {	//
 //Input: letter that user pressed | checks if it's one of the correct letters and checks if the letter has already been pressed
 function checkUserLetter(inputLetter) {
 	var newPrint = " ";
-	var alreadyGuessed;
+	var guessCorrect = false;
 
 	//this loop checks to see if the letter has already been pressed
 	for (var i = 0; i < guessedLetters.length; i++) {
@@ -91,13 +93,25 @@ function checkUserLetter(inputLetter) {
 	//this will check if the letter is correct and will change the current output
 	for (var k = 0; k < secretWord.length; k++) {
 		if (inputLetter === secretWord.charAt(k)) {
+			guessedLetters.push(inputLetter);
+			console.log("guessed letters: " + guessedLetters);
 			currentOutput[k] = inputLetter;
+			guessCorrect = true;
 		}
 	}
 
-	console.log(currentOutput);
+	//this will check decrement number of tries if guess is wrong
+	if (guessCorrect === false) {
+		guessedLetters.push(inputLetter);
+		console.log("guessed letters: " + guessedLetters);
+		trysLeft--;
+		console.log("tries left: " + trysLeft);
+	}
 
-	for (var e = 0; e < currentOutput.length; e++) {	//This loop turns currentOutput into a string
+	console.log("current output: " + currentOutput);
+
+	//This loop turns currentOutput into a string
+	for (var e = 0; e < currentOutput.length; e++) {	
 		newPrint = newPrint.concat(currentOutput[e]);
 	}
 
