@@ -9,25 +9,61 @@
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
-	<div>
+	<div class="container">
+		<div class="row introRow">
+			<div class="col-12 col-xs-auto">
+			
+				<p class="bigIntro">
+					As technology progresses, many obsolete things refuse to be forgotten. Help them to rest in peace
+				</p>
+
+				<p class="littleIntro">
+					Identify the obsolete monster to remove it from people's memories
+				</p>
+			
+			</div>
+		</div>
+
+
+		<section class="bottomWrapper">
 		
-		<p>As technology progresses, many obsolete things refuse to be forgotten. Help them to rest in peace</p>
-		<p>Identify the obsolete monster to remove it from people's memories</p>
+		<div class="row imageRow">
+			<div class="col-xs-6 knightCol">
+				<img class="img-responsive pull-left knight" src="assets/images/knight.png" alt="knight">
+			</div>
+
+			<div class="col-xs-6 monsterCol">
+				<img class="img-responsive pull-right monster" src="assets/images/monster5.jpg" alt="monster">
+			</div>
+
+		</div>
+
+		
+
 
 		<p id="blanks">I get replaced by blanks</p>
+
+		<progress class="progress-bar-success" id="health" value="100" max="100"></progress>
+
 		<p id="guessed">I'm letters you already guessed</p>
 		<p id="points">I'm the number of words you guessed</p>
 
+
+		</section>
+		
 	</div>
 
-	<progress class="progress-bar-success" id="health" value="100" max="100"></progress>
+	
 
 
 
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </body>
 </html>
