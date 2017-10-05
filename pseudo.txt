@@ -22,9 +22,35 @@ intro screen
 
 Functions needed
 
--picking a random word
--printing out blanks
+-picking a random word - randomWord()
+
+-printing out blanks - printBlanks()
+	-counts out length of word
+	-makes an array with the correct number of blanks
+	-replaces parts of array that has spaces
+
 -analyzing user guesses
+	-check if valid letter
+	-check if letter has been chosen already
+	-update screen
+		-check how many tries left (lifebar)
+			-game over screen
+		-update blanks with correct letters
+		-check to see if challenge is completed
+			-if completed, move to next word
+
 -updating screen
 	-decrementing number of tries
 	-add user-guess to array - if array is full, user loses
+
+
+
+
+
+--Healthbar code:-----------------------------
+HTML
+<progress id="health" value="100" max="100"></progress>
+
+JS
+let health = document.getElementById("health")
+health.value -= 10; //Or whatever you want to do with it.	
