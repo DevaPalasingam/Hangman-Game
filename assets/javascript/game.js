@@ -1,9 +1,10 @@
-var words = ["typewriter", "pager", "fax machine", "dial up", "phonebook", "floppy disk", "vhs"];
+var words = ["typewriter", "pager", "fax machine", "dial up", "phonebook", "floppy disk", "vhs", "rotary telephone", "telephone booth", "dumb phone", "walkman", "overhead projector"];
 var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
+var health = document.getElementById("health");
 var guessedLetters = [];
 var currentOutput = [];
-var trysLeft = 12;
+var trysLeft = 10;
 var secretWord;
 var gameOver = false;
 var wordsGuessedCount = 0;
@@ -45,7 +46,8 @@ document.onkeyup = function(event) {
 function initialize() {
 	guessedLetters = [];
 	currentOutput = [];
-	trysLeft = 12;
+	trysLeft = 10;
+	health.value = trysLeft * 10;
 	secretWord = randomWord();
 	printBlanks(secretWord);
 	document.querySelector("#guessed").innerHTML = "Guessed Letters: ";
@@ -57,6 +59,7 @@ function initialize() {
 //this function will change the text to say game over
 function endGame() {
 	gameOver = true;
+	health.value = 0;
 	document.querySelector("#blanks").innerHTML = "Game Over";
 }
 //........................................................
@@ -146,7 +149,9 @@ function checkUserLetter(inputLetter) {
 		guessedLetters.push(inputLetter);
 		console.log("guessed letters: " + guessedLetters);
 		trysLeft--;
+		health.value = trysLeft * 10;
 		console.log("tries left: " + trysLeft);
+		console.log("health: " + health.value);
 	}
 
 	if (trysLeft <= 0) {

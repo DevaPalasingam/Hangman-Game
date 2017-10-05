@@ -37,13 +37,14 @@ Functions needed
 		-add user-guess to array - if array is full, user loses
 	-update blanks with correct letters	
 	-print out the letter guessed
+-check to see if challenge is completed
+			-if completed, move to next word
 
 -check how many tries left (lifebar)
 			-game over screen
 		
 		
--check to see if challenge is completed
-			-if completed, move to next word
+
 
 
 
