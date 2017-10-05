@@ -3,7 +3,7 @@ var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','
 
 var guessedLetters = [];
 var currentOutput = [];
-var trysLeft = 5;
+var trysLeft = 12;
 var secretWord;
 var gameOver = false;
 
@@ -88,6 +88,7 @@ function printBlanks(printBlanks_input) {
 function checkUserLetter(inputLetter) {
 	var newPrint = " ";
 	var guessCorrect = false;
+	var guessedString = " ";
 
 	//this loop checks to see if the letter has already been pressed
 	for (var i = 0; i < guessedLetters.length; i++) {
@@ -100,8 +101,6 @@ function checkUserLetter(inputLetter) {
 	//this will check if the letter is correct and will change the current output
 	for (var k = 0; k < secretWord.length; k++) {
 		if (inputLetter === secretWord.charAt(k)) {
-			guessedLetters.push(inputLetter);
-			console.log("guessed letters: " + guessedLetters);
 			currentOutput[k] = inputLetter;
 			guessCorrect = true;
 		}
@@ -128,6 +127,12 @@ function checkUserLetter(inputLetter) {
 	}
 
 	document.querySelector("#blanks").innerHTML = newPrint;
+
+	//This loop turns guessedLetters into a string, then prints it
+	for (var p = 0; p < guessedLetters.length; p++) {	
+		guessedString = guessedString.concat(guessedLetters[p]);
+	}
+	document.querySelector("#guessed").innerHTML = "Guessed letters: " + guessedString;
 
 }
 //............................................................
