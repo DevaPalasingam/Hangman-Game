@@ -2,7 +2,7 @@
 
 As technology progresses, many obsolete things refuse to be forgotten. Help them to rest in peace. Identify the obsolete monster to remove it from people's memories.
 
-Demo: 
+Demo: https://devapalasingam.github.io/Obsolete-Hangman/
 
 
 ## How to Play
